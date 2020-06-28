@@ -11,7 +11,7 @@ import com.ticket.ticketservice.exception.BDException;
 
 public class TicketDAO extends PersistenceManagerDAO implements ITicketDAO {
 	
-private static TicketDAO instance;
+    private static TicketDAO instance;
 	
 	public static TicketDAO getInstance() {
 		if (instance == null) {
@@ -25,7 +25,7 @@ private static TicketDAO instance;
 
 	@Override
 	public void insertTicket(TicketDTO ticketDTO) throws BDException {
-		Connection conn = null;
+		 Connection conn = null;
 		 PreparedStatement stmt = null;	
 		 
 		 try {

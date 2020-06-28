@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ticket.ticketservice.bos.TicketBO;
-import com.ticket.ticketservice.dtos.RetornoDTO;
+import com.ticket.ticketservice.dtos.RetornoVO;
 import com.ticket.ticketservice.exception.BDException;
 import com.ticket.ticketservice.exception.NegocioException;
 import com.ticket.ticketservice.vos.TicketVO;
@@ -18,8 +18,8 @@ public class TicketController implements ITicketController {
 
 	@Override
 	@RequestMapping(value = "/cadastro", method =  RequestMethod.POST)
-	public ResponseEntity<RetornoDTO> cadastraTicket(@RequestParam String idProduto, @RequestParam String numeroPremiado) throws BDException {
-		RetornoDTO retornoDTO = new RetornoDTO();
+	public ResponseEntity<RetornoVO> cadastraTicket(@RequestParam String idProduto, @RequestParam String numeroPremiado) throws BDException {
+		RetornoVO retornoVO = new RetornoVO();
 		TicketVO ticketVO = new TicketVO();
 		try {
 			
@@ -27,12 +27,12 @@ public class TicketController implements ITicketController {
 			ticketVO.setNumeroTicketPremiado(numeroPremiado);
 			
 			TicketBO.getInstance().insertTicket(ticketVO);
-			retornoDTO.setMensagensRetorno("Cadastro realizado com sucesso!!!");
+			retornoVO.setMensagensRetorno("Cadastro realizado com sucesso!!!");
 		}catch (NegocioException e) {
-			retornoDTO.setMensagensRetorno(e.getMessage());
+			retornoVO.setMensagensRetorno(e.getMessage());
 		}
 		
-		return ResponseEntity.ok(retornoDTO);
+		return ResponseEntity.ok(retornoVO);
 	}
 
 }

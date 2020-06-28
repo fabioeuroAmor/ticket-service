@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author Kamy Ponce
  *
  */
-public class RetornoDTO implements Serializable {
+public class RetornoVO implements Serializable {
 	
 
 	private static final long serialVersionUID = 1L;

@@ -8,7 +8,7 @@ import com.ticket.ticketservice.vos.TicketVO;
 
 public class TicketBO implements ITicketBO{
 	
-	 private static TicketBO instance;
+	   private static TicketBO instance;
 		
 		public static TicketBO getInstance() {
 			if (instance == null) {
